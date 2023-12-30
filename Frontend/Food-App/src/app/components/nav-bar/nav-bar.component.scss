@@ -1,0 +1,42 @@
+.icon {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.664);
+  box-shadow: 0 0 5px white, inset 0 0 12px white;
+  transition: box-shadow 0.5s;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 10px white, inset 0 0 35px white;
+  }
+}
+.icon-main {
+  &:hover {
+    &::before,
+    &::after {
+      transform: translateX(0);
+    }
+  }
+  &::before,
+  &::after {
+    content: "";
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.274);
+    height: 70px;
+    width: 70px;
+    transition: transform 0.5s ease-out;
+    position: absolute;
+    z-index: 0;
+  }
+  &::before {
+    transform: translateX(3px);
+  }
+  &::after {
+    transform: translateX(6px);
+  }
+}
