@@ -3,8 +3,10 @@
   border: 1px solid rgba(255, 255, 255, 0.664);
   box-shadow: 0 0 5px white, inset 0 0 12px white;
   transition: box-shadow 0.5s;
-  height: 70px;
-  width: 70px;
+  min-height: 70px;
+  min-width: 70px;
+  max-width: 70px;
+  max-height: 70px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -15,28 +17,43 @@
     box-shadow: 0 0 10px white, inset 0 0 35px white;
   }
 }
-.icon-main {
-  &:hover {
+.bar-expand {
+  .icon:not(.icon-main) {
+    transform: translateX(calc(var(--n) * -86px));
+    transition: 0.5s, transform 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 0;
+    opacity: 0;
+  }
+  .icon-main {
+    &:hover {
+      &::before,
+      &::after {
+        transform: translateX(0);
+      }
+    }
     &::before,
     &::after {
-      transform: translateX(0);
+      content: "";
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.274);
+      height: 70px;
+      width: 70px;
+      transition: transform 0.5s ease-out;
+      position: absolute;
+      z-index: 0;
+    }
+    &::before {
+      transform: translateX(3px);
+    }
+    &::after {
+      transform: translateX(6px);
     }
   }
-  &::before,
-  &::after {
-    content: "";
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.274);
-    height: 70px;
-    width: 70px;
-    transition: transform 0.5s ease-out;
-    position: absolute;
-    z-index: 0;
-  }
-  &::before {
-    transform: translateX(3px);
-  }
-  &::after {
-    transform: translateX(6px);
+  position: relative;
+  &:hover {
+    .icon {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }

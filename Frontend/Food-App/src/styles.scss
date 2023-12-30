@@ -1,14 +1,25 @@
 @import url("./reset.css");
 @import url("../node_modules/primeflex/primeflex.css");
+@import "primeicons/primeicons.css";
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Sofia+Sans:wght@400;500;600;700&display=swap");
 html,
 body {
   height: 100%;
   width: 100%;
 }
 // ** Glass Design - gd **//
+* {
+  font-family: "Sofia Sans";
+}
+/** Custom Varibles  */
+:root {
+  --padding-base: 20px;
+}
+
+/** */
 .gd-window {
   display: flex;
-  padding: 20px;
+  padding: var(--padding-base);
   height: 100%;
   width: 100%;
   border-radius: 20px;
@@ -22,7 +33,7 @@ body {
     width: 100%;
   }
   display: flex;
-  padding: 20px;
+  padding: var(--padding-base);
   height: 100%;
   width: 100%;
   background: linear-gradient(
@@ -31,4 +42,7 @@ body {
     rgba(0, 53, 55, 1) 49%,
     rgba(31, 26, 70, 1) 89%
   );
+}
+.gap-base {
+  gap: var(--padding-base);
 }
